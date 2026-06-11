@@ -16,16 +16,19 @@ public class HomePage {
     }
 
     public void selectDeparture(String departureCity) {
+        System.out.println("Departure City: " + departureCity);
         new Select(driver.findElement(departure))
                 .selectByVisibleText(departureCity);
     }
 
     public void selectDestination(String destinationCity) {
+        System.out.println("Destination City: " + destinationCity);
         new Select(driver.findElement(destination))
                 .selectByVisibleText(destinationCity);
     }
 
     public void clickFindFlights() {
+        System.out.println("Searching Flights...");
         driver.findElement(findFlights).click();
     }
 }

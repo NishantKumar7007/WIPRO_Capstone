@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class FlightsPage {
-
     WebDriver driver;
 
     By flightsTable = By.xpath("//table[@class='table']");
@@ -18,16 +17,17 @@ public class FlightsPage {
 
     public void verifyFlightsDisplayed() {
         Assert.assertTrue(driver.findElement(flightsTable).isDisplayed(), "Flights list not displayed");
+        System.out.println("Flights displayed successfully");
     }
 
     public void chooseFlightByIndex(int index) {
-
         List<WebElement> flights = driver.findElements(chooseFlights);
 
         if (index < 1 || index > flights.size()) {
             throw new RuntimeException("Invalid flight index: " + index);
         }
 
+        System.out.println("Selecting Flight Index: " + index);
         flights.get(index - 1).click();
     }
 }
